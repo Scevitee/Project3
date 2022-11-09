@@ -20,11 +20,11 @@ class Pakudex:
         # for each pakuri in self.pakuris:
             # sp = get species of pakuri
             # append sp to final results list
-        spec_arr = []
+        species_arr = []
         for pak in self.pakuri_list:
             sp = pak.species
-            spec_arr.append(sp)
-            return spec_arr
+            species_arr.append(sp)
+            return species_arr
 
 
     def get_stats(self, species):
@@ -43,15 +43,27 @@ class Pakudex:
         self.pakuri_list.sort(key=lambda paku: paku.name)
 
     def add_pakuri(self, species):
-        pakuri = Pakuri(species)   ##### Check if I need to do this for some of the other functions above as well
+        pakuri = Pakuri(species)
+        ##### Check if I need to do this for some of the other functions above as well
+        #### Note: I don't think that I do.
         # add this pakuri into self.pakuri_list (in the __init__ def)
         # increment self.size by 1
         # 1. Check duplicates
         # 2. check if list is full
         if pakuri not in self.pakuri_list:
+            # This may need to be comparing the species name
+            # Something like pakuri.species not in self.pakuri_list
             if self.size < self.capacity:
                 self.pakuri_list.append(pakuri)
 
+
+    def evolve_species(self, species):
+        # Attempts to evolve species within pakudex.
+        # If unsuccessful, return True, return False otherwise
+        ## Why wouldn't it be able to evolve a species??
+        ### Maybe if it's already been evolved
+        ### 
+        pass
 
 
 
