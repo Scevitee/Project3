@@ -23,9 +23,9 @@ class Pakuri:
         self.attack = new_attack
 
     def evolve(self):
-        pass
+        self.attack *= 2
+        self.defense *= 4
+        self.speed *= 3
 
 
-
-
-pakuri = Pakuri("Pikabu")
+m1 = Pakuri("Pikachu")
