@@ -4,6 +4,7 @@ class Pakuri:
         self.attack = (len(species) * 7) + 9
         self.defense =  (len(species) * 5) + 17
         self.speed = (len(species) * 6) + 13
+        self.evolvable = True
 
     # getter: retrieve the attribute value
     def get_species(self):
@@ -26,6 +27,7 @@ class Pakuri:
         self.attack *= 2
         self.defense *= 4
         self.speed *= 3
+        self.evolvable = False
 
 
 m1 = Pakuri("Pikachu")

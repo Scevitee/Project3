@@ -2,6 +2,8 @@ from pakuri import *
 
 class Pakudex:
     # Pakudex has a list of pakuri
+
+
     def __init__(self, capacity=20):
         self.pakuri_list = []
         self.capacity = capacity
@@ -61,9 +63,12 @@ class Pakudex:
         # Attempts to evolve species within pakudex.
         # If unsuccessful, return True, return False otherwise
         ## Why wouldn't it be able to evolve a species??
-        ### Maybe if it's already been evolved
-        ### 
-        pass
+        ### Inputted species doesn't exist
+        if species in self.pakuri_list:
+            species.evolve()
+            return False
+        else:
+            return True
 
 
 
