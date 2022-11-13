@@ -26,16 +26,18 @@ class Pakudex:
         for pak in self.pakuri_list:
             sp = pak.species
             species_arr.append(sp)
-            return species_arr
+        return species_arr
 
 
     def get_stats(self, species):
         stat_ls = []
-        if species in self.pakuri_list:
-            stat_ls.extend([species.get_attack, species.get_defense, species.get_speed ])
-            return stat_ls
-        else:
-            return None
+        pakuri = Pakuri(species)
+        for item in self.pakuri_list:
+            if item.species == pakuri.get_species():
+                stat_ls.extend([pakuri.get_species(), pakuri.get_attack(), pakuri.get_defense(), pakuri.get_speed()])
+                return stat_ls
+        return None
+
 
 
 
@@ -57,6 +59,7 @@ class Pakudex:
             # Something like pakuri.species not in self.pakuri_list
             if self.size < self.capacity:
                 self.pakuri_list.append(pakuri)
+        return self.pakuri_list
 
 
     def evolve_species(self, species):

@@ -29,7 +29,7 @@ if __name__ == '__main__':
                 print("No Pakuri in Pakudex yet!")
             else:
                 i = 1
-                print('\nPakuri In Poakudex:')
+                print('\nPakuri In Pakudex:')
                 for item in pakudex.pakuri_list:
                     print(f'{i}. {item.species}')
                     i += 1
@@ -37,9 +37,10 @@ if __name__ == '__main__':
         elif choice == 2:
             pak_display = input('Enter the name of the species to display: ')
             if pak_display in pakudex.get_species_array():
-                print(f'Species: {pak_display}')
-                print(f'Attack: {pak_display.get_attack}')
-
+                stats = pakudex.get_stats(pak_display)
+                print(f'\nSpecies: {stats[0]}\nAttack: {stats[1]}\nDefense: {stats[2]}\nSpeed: {stats[3]}')
+            else:
+                print("Error: No such Pakuri!")
 
         elif choice == 3:
             pak_added = input('Enter the name of the species to add: ')
