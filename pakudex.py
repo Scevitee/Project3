@@ -34,7 +34,7 @@ class Pakudex:
         pakuri = Pakuri(species)
         for item in self.pakuri_list:
             if item.species == pakuri.get_species():
-                stat_ls.extend([pakuri.get_species(), pakuri.get_attack(), pakuri.get_defense(), pakuri.get_speed()])
+                stat_ls.extend([item.get_species(), item.get_attack(), item.get_defense(), item.get_speed()])
                 return stat_ls
         return None
 
@@ -44,14 +44,11 @@ class Pakudex:
     def sort_pakuri(self):
         # approach 2 (from prior notes)
         # or use approach 1 -> create separate __lt__ for comparison
-        self.pakuri_list.sort(key=lambda paku: paku.name)
+        self.pakuri_list.sort(key=lambda paku: paku.species)
 
     def add_pakuri(self, species):
         pakuri = Pakuri(species)
-        ##### Check if I need to do this for some of the other functions above as well
-        #### Note: I don't think that I do.
         # add this pakuri into self.pakuri_list (in the __init__ def)
-        # increment self.size by 1
         # 1. Check duplicates
         # 2. check if list is full
         if pakuri not in self.pakuri_list:
@@ -67,11 +64,18 @@ class Pakudex:
         # If unsuccessful, return True, return False otherwise
         ## Why wouldn't it be able to evolve a species??
         ### Inputted species doesn't exist
-        if species in self.pakuri_list:
-            species.evolve()
-            return False
-        else:
-            return True
+        pakuri = Pakuri(species)
+        i = 0
+        for item in self.pakuri_list:
+            if item.species == pakuri.get_species():
+                self.pakuri_list[i].evolve()
+                return True
+            i += 1
+        return False
+
+
+
+
 
 
 
