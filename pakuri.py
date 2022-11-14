@@ -27,7 +27,6 @@ class Pakuri:
         self.attack *= 2
         self.defense *= 4
         self.speed *= 3
-        self.evolvable = False
 
 
 m1 = Pakuri("Pikachu")
